@@ -4,7 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Untitled Form</title>
 {{ Html::style('website/assests/view.css') }}
+{{ Html::style('css/parsley.css') }}
+
 {{ Html::script('website/assests/view.js') }}
+{{ Html::script('js/parsley.min.js') }}
 
 </head>
 <body id="main_body" >
@@ -13,7 +16,7 @@
 	<div id="form_container">
 
 		<h1>Create post</h1>
-		{!! Form::open(['route' => 'post.store' ,'method'=>'post', 'class'=>'appnitro']) !!}
+		{!! Form::open(['route' => 'post.store' ,'method'=>'post', 'class'=>'appnitro','data-parsley-validate'=>'']) !!}
 
 
 
@@ -27,14 +30,14 @@
 			{{Form::label('title','Title : ',['class'=>'description'])}}
 
 		<div>
-			{{Form::text('title',null,['class'=>'element text medium'])}}
+			{{Form::text('title',null,['class'=>'element text medium','required'=>'','maxlength'=>'4'])}}
 
 		</div>
 		</li>
 		<li id="li_2" >
 		{{Form::label('body','Enter Body : ',['class'=>'description'])}}
 		<div>
-			{{Form::textarea('body',null,['class'=>'element textarea medium'])}}
+			{{Form::textarea('body',null,['class'=>'element textarea medium','required'=>''])}}
 
 		</div>
 		</li>
@@ -42,7 +45,7 @@
 					<li class="buttons">
 			    {{Form::submit('submit',['class'=>'button_text'])}}
 
-				
+
 		</li>
 			</ul>
 	{!! Form::close() !!}

@@ -30,7 +30,7 @@
 			{{Form::label('title','Title : ',['class'=>'description'])}}
 
 		<div>
-			{{Form::text('title',null,['class'=>'element text medium','required'=>'','maxlength'=>'4'])}}
+			{{Form::text('title',null,['class'=>'element text medium','required'=>'','maxlength'=>'255'])}}
 
 		</div>
 		</li>
